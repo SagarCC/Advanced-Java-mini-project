@@ -1,0 +1,46 @@
+package firstSpring;
+
+import java.awt.*;
+import java.applet.*;
+import javax.swing.*;
+
+public class GettingInputfromtheUser extends Applet
+{
+		TextField t1, t2;
+		public void init()
+        {
+				setSize(500, 500);
+                t1 = new TextField(1);
+                add(t1);
+        }
+		
+        public void paint(Graphics g)
+        {
+                String str;
+                char ch=' ';
+
+                g.drawString("Enter the character",10,50);
+
+                try
+                {
+                        str=t1.getText();
+                        ch=str.charAt(0);
+                }
+                catch(Exception e)
+                {
+                }
+                g.drawString("Vowel", 10, 100);
+                g.drawString("Consonant", 10, 300);
+                g.drawRect(100, 100, 200, 100);
+                g.drawOval(100, 300, 150, 100);
+                
+                if(ch=='a' || ch=='e'|| ch=='i'|| ch=='o'|| ch=='u') {
+                	g.setColor(Color.red);
+                	g.drawRect(100, 100, 200, 100);
+                }
+                else {
+                	g.setColor(Color.blue);
+                	g.drawOval(100, 300, 150, 100);
+                }                
+        }
+}
